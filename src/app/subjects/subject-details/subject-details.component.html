@@ -1,0 +1,16 @@
+<p>subject-info works!</p>
+<div *ngIf="subject">
+  <h2>{{subject.name}} details!</h2>
+  <div><label>id: </label>{{subject.id}}</div>
+  <div>
+    <label>name: </label>
+    <label>{{subject.name}} </label>
+    <input [(ngModel)]="subject.name" />
+  </div>
+  <div>
+    <label>teacher: </label>
+    <label>{{subject.teacher}} </label>
+    <input [(ngModel)]="subject.teacher" />
+  </div>
+
+</div>

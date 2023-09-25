@@ -1,0 +1,9 @@
+<p>subject-list works!</p>
+<h2>Subjects</h2>
+<ul class="subjects">
+  <li *ngFor="let subject of  subjects$| async" [class.selected]="subject.id === selectedId" >
+    <a [routerLink]="[subject.id]">
+      <span >{{ subject.id }}  {{ subject.name }}  {{subject.teacher}} </span>   
+    </a>     
+  </li> </ul>
+<router-outlet></router-outlet>
