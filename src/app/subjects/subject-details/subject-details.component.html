@@ -1,4 +1,3 @@
-<p>subject-info works!</p>
 <div *ngIf="subject">
   <h2>{{subject.name}} details!</h2>
   <div><label>id: </label>{{subject.id}}</div>
@@ -12,5 +11,8 @@
     <label>{{subject.teacher}} </label>
     <input [(ngModel)]="subject.teacher" />
   </div>
-
+  <!-- <button type="submit"(click)="onUpdate()"class="btn btn-primary">
+    {{siEditing? 'Update':'Add'}}
+  </button> -->
+  <button (click)=onDelete() class="btn btn-danger">Delete</button>
 </div>

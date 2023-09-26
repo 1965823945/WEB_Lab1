@@ -26,9 +26,12 @@ this.subjects.push(subject);
 }
 
 async delete(subject: Subject) {
-//id : number;
-const index=subject.id;
-this.subjects.slice(index, 1);
+  console.log(subject.id, subject.name, subject.teacher);
+  const ind = this.subjects.findIndex((obj)=>obj.id===subject.id);
+  console.log("ind =", ind);
+  if (ind!==-1){
+  this.subjects.splice(ind,1);
+  }
 
 }
 

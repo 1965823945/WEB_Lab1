@@ -18,20 +18,30 @@ export class SubjectDetailsComponent implements OnInit {
 	@Input() editTeacher: String;
 
 	constructor(private service: SubjectsService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private router: Router
 	) { }
 	ngOnInit() {
 		let id;
 		this.route.paramMap.subscribe((paramMap) => {
 			id = +paramMap.get("id"),
-			this.service.getSubject(id).subscribe(subject => {
-				this.subject = subject;
-				this.editName = this.subject.name;
-				this.editTeacher = this.subject.teacher;
-				console.log('editTeacher : ' + this.editTeacher);
-				console.log('editName : ' + this.editName);
-			});
+				this.service.getSubject(id).subscribe(subject => {
+					this.subject = subject;
+					this.editName = this.subject.name;
+					this.editTeacher = this.subject.teacher;
+					console.log('editName : ' + this.editName);
+					console.log('editTeacher : ' + this.editTeacher);
+				});
 		}
 		);
+	}
+	onDelete() {
+		this.service.delete(this.subject).then(result => this.gotoSubjectList());
+	}
+
+	gotoSubjectList() {
+
+		this.router.navigate(['/subject-center']);
+
 	}
 }
