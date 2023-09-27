@@ -38,7 +38,6 @@ export class AddSubjectComponent {
     console.log("on submit");
     console.log(this.subject.name);
     this.service.create(this.subject).then(result => this.gotoSubjectList());
-
   }
 
   gotoSubjectList() {

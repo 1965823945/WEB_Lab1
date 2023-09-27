@@ -35,10 +35,13 @@ export class SubjectDetailsComponent implements OnInit {
 		}
 		);
 	}
+	onUpdate() {
+		this.service.update(this.subject).then(result => this.gotoSubjectList());
+	}
+	
 	onDelete() {
 		this.service.delete(this.subject).then(result => this.gotoSubjectList());
 	}
-
 	gotoSubjectList() {
 
 		this.router.navigate(['/subject-center']);
